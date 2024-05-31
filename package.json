@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "copyfiles": "2.4.1",
+    "deasync": "^0.1.29",
     "parcel-plugin-browserconfig": "1.0.5"
   }
 }
