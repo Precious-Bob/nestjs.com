@@ -68,8 +68,9 @@ window.addEventListener('load', function () {
 
       const value = newsletterEmailInput.value;
       const xhr = new XMLHttpRequest();
-      const url =
-        'https://nbdggbnqnrevwg6xlex3st3vpe0nyhiq.lambda-url.us-east-2.on.aws/?token=db1f899025b5a59a76b6b34b2a013893';
+      // const url =
+      //   'https://nbdggbnqnrevwg6xlex3st3vpe0nyhiq.lambda-url.us-east-2.on.aws/?token=db1f899025b5a59a76b6b34b2a013893';
+      const url = 'http://localhost:4000/subscriptions';
       xhr.open('POST', url, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onreadystatechange = function () {
@@ -77,7 +78,6 @@ window.addEventListener('load', function () {
       };
       const data = JSON.stringify({ email: value });
       xhr.send(data);
-      console.log(data);
     });
   }
 });
