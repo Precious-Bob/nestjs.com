@@ -96,4 +96,4 @@ window.addEventListener('load', function () {
   }
 });
 
-// cont url = 'http://localhost:4000/subscriptions'
+// const url = 'http://localhost:4000/subscriptions'
