@@ -1,7 +1,11 @@
 :root {
   --primary-color: #ea2845;
   --primary-accent-color: #ea2868;
-  --primary-gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-accent-color) 100%);
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--primary-accent-color) 100%
+  );
 }
 
 html {
@@ -10,7 +14,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 17.5px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -86,7 +90,7 @@ a:active {
 }
 
 .page-header {
-  background-image: url("./img/header.png");
+  background-image: url('./img/header.png');
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -152,17 +156,15 @@ a:active {
 }
 
 .btn-primary::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: 30px;
   padding: 2px;
   background: var(--primary-gradient);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
   z-index: 2;
 }
@@ -176,7 +178,9 @@ a:active {
   background: transparent;
 }
 
-.btn-primary:hover span, .btn-primary:active span, .btn-primary:focus span {
+.btn-primary:hover span,
+.btn-primary:active span,
+.btn-primary:focus span {
   color: var(--primary-color);
   background: var(--primary-gradient);
   -webkit-background-clip: text;
@@ -189,17 +193,15 @@ a:active {
 }
 
 .btn-secondary::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: 30px;
   padding: 2px;
   background: #fff;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
   z-index: 2;
 }
@@ -224,7 +226,7 @@ a:active {
 }
 
 .event-bar {
-  background-image: url("./img/mane-bg.png");
+  background-image: url('./img/mane-bg.png');
   background-position: 70% top;
   background-repeat: no-repeat;
   background-color: #eb2845;
@@ -464,7 +466,6 @@ a:active {
   background-color: transparent;
 }
 
-
 .support-section a img {
   max-width: 100%;
   max-height: 100%;
@@ -612,7 +613,7 @@ a:active {
 }
 
 .enterprise-wrapper {
-  background-image: url("./img/support.png");
+  background-image: url('./img/support.png');
   background-position: left bottom;
   background-repeat: no-repeat;
   background-color: #ed1543;
@@ -757,6 +758,25 @@ a:active {
   transform: rotate(-30deg);
 }
 
+.newsletter-form button .icon-error {
+  display: none;
+  font-size: 20px;
+}
+
+.newsletter-form .btn-error {
+  background: #130102;
+  color: #ff0000;
+  border: 1px solid #f5c6cb;
+  pointer-events: none;
+}
+
+.newsletter-form .btn-error .fa-paper-plane,
+.newsletter-form .btn-error .icon-success {
+  display: none;
+}
+.newsletter-form .btn-error .icon-error {
+  display: inline;
+}
 .companies-tiles {
   margin: 70px auto;
 }
@@ -789,7 +809,6 @@ a:active {
   transform: translateY(-50%) translateX(-50%);
   position: absolute;
 }
-
 
 @media (max-width: 1300px) {
   .enterprise-wrapper {
@@ -935,7 +954,7 @@ a:active {
 }
 
 .plyr__video-wrapper:not(.hidden-poster)::before {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 100;
   left: 0;
@@ -943,7 +962,7 @@ a:active {
   top: -2px;
   bottom: 0;
   width: 100%;
-  background: url("img/video-poster.png") center center no-repeat;
+  background: url('img/video-poster.png') center center no-repeat;
   background-size: 100%;
 }
 

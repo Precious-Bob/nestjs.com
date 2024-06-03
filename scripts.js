@@ -55,29 +55,45 @@ window.addEventListener('load', function () {
       });
     });
   }
-
-  const newsletterAddButton = document.querySelector('.newsletter-form button');
+  // Select elements
+  const newsletterForm = document.querySelector('.newsletter-form form');
   const newsletterEmailInput = document.querySelector('#newsletter-email');
-  const formRef = document.querySelector('.newsletter-form form');
-  if (newsletterAddButton && newsletterEmailInput) {
-    formRef.addEventListener('submit', function (e) {
-      e.preventDefault();
+  const newsletterAddButton = document.querySelector('.newsletter-form button');
 
-      newsletterAddButton.setAttribute('disabled', 'disabled');
-      newsletterEmailInput.setAttribute('disabled', 'disabled');
+  newsletterForm.addEventListener('submit', handleFormSubmit);
 
-      const value = newsletterEmailInput.value;
-      const xhr = new XMLHttpRequest();
-      // const url =
-      //   'https://nbdggbnqnrevwg6xlex3st3vpe0nyhiq.lambda-url.us-east-2.on.aws/?token=db1f899025b5a59a76b6b34b2a013893';
-      const url = 'http://localhost:4000/subscriptions';
-      xhr.open('POST', url, true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.onreadystatechange = function () {
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    newsletterEmailInput.disabled = true;
+    newsletterAddButton.disabled = true;
+
+    const email = newsletterEmailInput.value.trim();
+
+    try {
+      const response = await fetch(
+        'https://nbdggbnqnrevwg6xlex3st3vpe0nyhiq.lambda-url.us-east-2.on.aws/?token=db1f899025b5a59a76b6b34b2a013893',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+      if (response.ok) {
         newsletterAddButton.classList.add('btn-success');
-      };
-      const data = JSON.stringify({ email: value });
-      xhr.send(data);
-    });
+        newsletterEmailInput.value = '';
+      } else {
+        newsletterAddButton.classList.add('btn-error');
+      }
+    } catch (error) {
+      newsletterAddButton.classList.add('btn-error');
+    } finally {
+      newsletterEmailInput.disabled = false;
+      newsletterAddButton.disabled = false;
+    }
   }
 });
+
+// cont url = 'http://localhost:4000/subscriptions'
